@@ -1,6 +1,7 @@
 # ⚖️ Calculadora de IMC Web
 
 Este projeto é uma calculadora de **Índice de Massa Corporal (IMC)** desenvolvida em HTML, CSS e JavaScript. Ela permite ao usuário inserir seu peso e altura para calcular automaticamente o IMC, exibindo o resultado e a classificação correspondente.
+https://millanzz.github.io/CalculadoraIMC/
 
 ---
 
