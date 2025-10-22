@@ -1,85 +1,140 @@
-main{
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    background-color: #6565ff;
-  
-  }
-  
-  .container{
-    display: flex;
-    flex-direction: column;
-    background: #2E2E2E;
-    width: 400px;
-    height: 600px;
-    align-items: center;
-    justify-content: space-evenly;
-    border-radius: 20px;
-    box-shadow: 0 0 10px WHITE;
-  }
-  
-  .title{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 50px;
-    font: bold 2.5rem serif;
-    color:  #9668D6;
-    border-bottom: solid 5px #333738;
-    margin-bottom: 20px;
-  }
-  
-  .input {
-    display: flex;
-    width: 300px;
-    height: 50px;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .input input {
-    width: 200px;
-    height: 50px;
-    border-radius: 5px;
-    border:none;
-    outline: 0;
-    font: bold 1.5rem serif;
-    color: #FFFFFD;
-    text-align: center;
-    background: #333738;  
-  }
-  
-  .input label {
-    font: bold 1.5rem serif;
-    color: #9668D6;
-  }
-  
-  button{
-    width: 300px;
-    height: 40px;
-    font: bold 1.2rem serif;
-    background: #333738;
-    color: #9668D6;
-    outline: none;
-    border-radius: 5px;
-    cursor: pointer;
-    
-  }
-  
-  .result{
-    display: flex;
-    margin-top: 20px;
-    align-items: center;
-    width: 300px;
-    height: 150px;
-    border-radius: 5px;
-    font: italic 1.5rem serif;
-    box-shadow: 0px 0px 10px white;
-    background: #333738;
-    color: #FFFFFD;
-    padding: 20px;
-    box-sizing: border-box;
-    user-select: none;
-  }
+    :root {
+      --accent: #45f3ff;
+      --bg-dark: #2d2d39;
+      --frame: #25252b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", Arial, sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(180deg, #0f0f12 0%, #121216 100%);
+      color: #fff;
+    }
+
+    /* Caixa principal com animação */
+    .container {
+      position: relative;
+      width: 350px;
+      padding: 40px 30px;
+      border-radius: 20px;
+      overflow: hidden;
+      text-align: center;
+      transition: 0.5s;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .container::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: repeating-conic-gradient(
+        from 0deg,
+        var(--accent) 0%,
+        transparent 8%,
+        transparent 35%,
+        var(--accent) 45%
+      );
+      filter: drop-shadow(0 15px 50px rgba(0, 0, 0, 0.6));
+      border-radius: 20px;
+      animation: rotating 6s linear infinite;
+      z-index: 0;
+      opacity: 0.9;
+    }
+
+    .container::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      background: var(--bg-dark);
+      border-radius: 14px;
+      border: 6px solid var(--frame);
+      z-index: 1;
+    }
+
+    /* Conteúdo dentro da caixa */
+    .container * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .title {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .input {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      color: #ccc;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.03);
+      color: #e9f7fb;
+      outline: none;
+      font-size: 0.95rem;
+      transition: 0.2s;
+    }
+
+    input:focus {
+      box-shadow: 0 0 15px rgba(69, 243, 255, 0.3);
+      border-color: rgba(69, 243, 255, 0.45);
+    }
+
+    button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid rgba(69, 243, 255, 0.18);
+      background: linear-gradient(
+        90deg,
+        rgba(69, 243, 255, 0.14),
+        rgba(69, 243, 255, 0.05)
+      );
+      color: #dffcff;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(69, 243, 255, 0.15);
+    }
+
+    .result {
+      margin-top: 15px;
+      font-size: 1rem;
+      color: #9efcff;
+    }
+
+    @keyframes rotating {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
